@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\takum\\github\\MemSync\\MemSync.csproj": {}
+    "/Users/taaakuma/github/MemSync/MemSync.csproj": {}
   },
   "projects": {
-    "C:\\Users\\takum\\github\\MemSync\\MemSync.csproj": {
+    "/Users/taaakuma/github/MemSync/MemSync.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\takum\\github\\MemSync\\MemSync.csproj",
+        "projectUniqueName": "/Users/taaakuma/github/MemSync/MemSync.csproj",
         "projectName": "MemSync",
-        "projectPath": "C:\\Users\\takum\\github\\MemSync\\MemSync.csproj",
-        "packagesPath": "C:\\Users\\takum\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\takum\\github\\MemSync\\obj\\",
+        "projectPath": "/Users/taaakuma/github/MemSync/MemSync.csproj",
+        "packagesPath": "/Users/taaakuma/.nuget/packages/",
+        "outputPath": "/Users/taaakuma/github/MemSync/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\takum\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/taaakuma/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

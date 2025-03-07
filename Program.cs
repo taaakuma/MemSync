@@ -9,27 +9,19 @@ namespace MemSync
         static void Main(string[] args)
         {
             //Windows 2001:f75:92a0:810:d326:f5fb:989e:62d3
+            //Mac 2001:f75:92a0:810:c45:d054:dc87:7930
             foreach (var ipv6 in GetLocalIPv6Addresses())
             {
                 Console.WriteLine($"IPv6 Address: {ipv6}");
             }
-            string select;
-            while (true)
-            {
-                select = Console.ReadLine();
-                if (select == "s" || select == "c") break;
-            }
-            if (select == "s")
-            {
-                Server server = new Server();
-                while (true)
-                {
-
-                }
-            }
-            else
-            {
-                RemoteCommandExecutor rce = new RemoteCommandExecutor();
+            Server server = new Server();
+            var rce = new RemoteCommandExecutor();
+            Console.Write("input ipAddress: ");
+            string ip = Console.ReadLine();
+            Console.WriteLine($"ip: {ip}");
+            while(true) {
+                string message = Console.ReadLine();
+                rce.send(ip,System.Text.Encoding.UTF8.GetBytes(message));
             }
             Console.WriteLine("実行が終わりました。");
 

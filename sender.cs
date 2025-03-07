@@ -15,7 +15,7 @@ namespace MemSync
         public RemoteCommandExecutor()
         {
         }
-        public void send(byte[] sendBytes)
+        public void send(string ipAddress,byte[] sendBytes)
         {
             //UdpClientを作成する
             if (udpClient == null)
@@ -25,7 +25,7 @@ namespace MemSync
 
             //非同期的にデータを送信する
             udpClient.BeginSend(sendBytes, sendBytes.Length,
-                "localhost", 2001,
+                ipAddress, 2001,
                 SendCallback, udpClient);
         }
 

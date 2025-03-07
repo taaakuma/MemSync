@@ -1,59 +1,66 @@
 using System;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-
 
 namespace MemSync
 {
     class RemoteCommandExecutor
     {
-        private System.Net.Sockets.UdpClient udpClient = null;
-        public int port = 0;
-        //Button2のClickイベントハンドラ
-        //データを送信する
+        private UdpClient udpClient = null;
+        public int port = 2001; // デフォルトポートを設定
+
+        // コンストラクタ
         public RemoteCommandExecutor()
         {
         }
-        public void send(string ipAddress,byte[] sendBytes)
+
+        public void send(string ipAddress, byte[] sendBytes)
         {
-            //UdpClientを作成する
+            // UdpClientを作成する
             if (udpClient == null)
             {
-                udpClient = new System.Net.Sockets.UdpClient();
+                // IPv6アドレスを扱うためにAddressFamily.InterNetworkV6を指定
+                udpClient = new UdpClient(AddressFamily.InterNetworkV6);
             }
 
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(ipAddress), 2001);
+            IPEndPoint endPoint;
 
-            //非同期的にデータを送信する
+            if (IPAddress.TryParse(ipAddress, out IPAddress ip))
+            {
+                endPoint = new IPEndPoint(ip, port);
+                Console.WriteLine("IPv6 Address is valid");
+            }
+            else
+            {
+                Console.WriteLine("Invalid IPv6 Address");
+                return;
+            }
+
+            // 非同期的にデータを送信する
             udpClient.BeginSend(sendBytes, sendBytes.Length,
                 endPoint,
                 SendCallback, udpClient);
         }
 
-        //データを送信した時
+        // データを送信した時
         private void SendCallback(IAsyncResult ar)
         {
-            System.Net.Sockets.UdpClient udp =
-                (System.Net.Sockets.UdpClient)ar.AsyncState;
+            UdpClient udp = (UdpClient)ar.AsyncState;
 
-            //非同期送信を終了する
+            // 非同期送信を終了する
             try
             {
                 udp.EndSend(ar);
             }
-            catch (System.Net.Sockets.SocketException ex)
+            catch (SocketException ex)
             {
-                Console.WriteLine("送信エラー({0}/{1})",
-                    ex.Message, ex.ErrorCode);
+                Console.WriteLine("送信エラー({0}/{1})", ex.Message, ex.ErrorCode);
             }
             catch (ObjectDisposedException ex)
             {
-                //すでに閉じている時は終了
+                // すでに閉じている時は終了
                 Console.WriteLine("Socketは閉じられています。");
             }
         }
-
-
     }
 }

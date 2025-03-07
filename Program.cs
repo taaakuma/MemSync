@@ -14,18 +14,19 @@ namespace MemSync
             {
                 Console.WriteLine($"IPv6 Address: {ipv6}");
             }
-            Server server = new Server();
+            
             var rce = new RemoteCommandExecutor();
+            if(Console.ReadLine() == "s"){
+                Server server = new Server();
+                while(true){}
+            }
             Console.Write("input ipAddress: ");
             string ip = Console.ReadLine();
             Console.WriteLine($"ip: {ip}");
             while(true) {
                 string message = Console.ReadLine();
-                //rce.send(ip,System.Text.Encoding.UTF8.GetBytes(message));
-                Socket socket = new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp);
-                socket.Connect(new IPEndPoint(IPAddress.Parse(ip), 2001));
-                socket.Disconnect(false);
-                socket.Dispose();
+                rce.send(ip,System.Text.Encoding.UTF8.GetBytes(message));
+
             }
             Console.WriteLine("実行が終わりました。");
 

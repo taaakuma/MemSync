@@ -23,9 +23,11 @@ namespace MemSync
                 udpClient = new System.Net.Sockets.UdpClient();
             }
 
+            IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(ipAddress), 2001);
+
             //非同期的にデータを送信する
             udpClient.BeginSend(sendBytes, sendBytes.Length,
-                ipAddress, 2001,
+                endPoint,
                 SendCallback, udpClient);
         }
 

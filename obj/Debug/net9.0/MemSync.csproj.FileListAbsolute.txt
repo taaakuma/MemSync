@@ -1,0 +1,15 @@
+/Users/taaakuma/github/MemSync/bin/Debug/net9.0/MemSync
+/Users/taaakuma/github/MemSync/bin/Debug/net9.0/MemSync.deps.json
+/Users/taaakuma/github/MemSync/bin/Debug/net9.0/MemSync.runtimeconfig.json
+/Users/taaakuma/github/MemSync/bin/Debug/net9.0/MemSync.dll
+/Users/taaakuma/github/MemSync/bin/Debug/net9.0/MemSync.pdb
+/Users/taaakuma/github/MemSync/obj/Debug/net9.0/MemSync.GeneratedMSBuildEditorConfig.editorconfig
+/Users/taaakuma/github/MemSync/obj/Debug/net9.0/MemSync.AssemblyInfoInputs.cache
+/Users/taaakuma/github/MemSync/obj/Debug/net9.0/MemSync.AssemblyInfo.cs
+/Users/taaakuma/github/MemSync/obj/Debug/net9.0/MemSync.csproj.CoreCompileInputs.cache
+/Users/taaakuma/github/MemSync/obj/Debug/net9.0/MemSync.sourcelink.json
+/Users/taaakuma/github/MemSync/obj/Debug/net9.0/MemSync.dll
+/Users/taaakuma/github/MemSync/obj/Debug/net9.0/refint/MemSync.dll
+/Users/taaakuma/github/MemSync/obj/Debug/net9.0/MemSync.pdb
+/Users/taaakuma/github/MemSync/obj/Debug/net9.0/MemSync.genruntimeconfig.cache
+/Users/taaakuma/github/MemSync/obj/Debug/net9.0/ref/MemSync.dll

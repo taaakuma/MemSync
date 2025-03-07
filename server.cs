@@ -12,7 +12,7 @@ namespace MemSync
         public int port = 2001;
         public Server()
         {
-            Console.WriteLine("aa");
+
             //UdpClientを作成し、指定したポート番号にバインドする
             udpClient =
                 new System.Net.Sockets.UdpClient(

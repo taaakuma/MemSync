@@ -21,7 +21,11 @@ namespace MemSync
             Console.WriteLine($"ip: {ip}");
             while(true) {
                 string message = Console.ReadLine();
-                rce.send(ip,System.Text.Encoding.UTF8.GetBytes(message));
+                //rce.send(ip,System.Text.Encoding.UTF8.GetBytes(message));
+                Socket socket = new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp);
+                socket.Connect(new IPEndPoint(IPAddress.Parse(ip), 2001));
+                socket.Disconnect(false);
+                socket.Dispose();
             }
             Console.WriteLine("実行が終わりました。");
 

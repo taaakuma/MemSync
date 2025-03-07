@@ -8,6 +8,7 @@ namespace MemSync
     {
         static void Main(string[] args)
         {
+            //Windows 2001:f75:92a0:810:d326:f5fb:989e:62d3
             foreach (var ipv6 in GetLocalIPv6Addresses())
             {
                 Console.WriteLine($"IPv6 Address: {ipv6}");

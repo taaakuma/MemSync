@@ -2,71 +2,49 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-
+using System.Threading.Tasks;
 
 namespace MemSync
 {
     class Server
     {
-        private System.Net.Sockets.UdpClient udpClient = null;
+        private UdpClient udpClient;
         public int port = 2001;
+
         public Server()
         {
+            udpClient = new UdpClient(AddressFamily.InterNetworkV6);
+            udpClient.Client.SetSocketOption(SocketOptionLevel.IPv6, SocketOptionName.IPv6Only, 0);
+            udpClient.Client.Bind(new IPEndPoint(IPAddress.IPv6Any, port));
 
-            //UdpClientを作成し、指定したポート番号にバインドする
-            udpClient =
-                new System.Net.Sockets.UdpClient(
-                    System.Net.Sockets.AddressFamily.InterNetworkV6);
-
-            udpClient.Client.SetSocketOption(System.Net.Sockets.SocketOptionLevel.IPv6,
-                System.Net.Sockets.SocketOptionName.IPv6Only,
-                0);
-                
-            System.Net.IPEndPoint localEP =
-                new System.Net.IPEndPoint(System.Net.IPAddress.IPv6Any, this.port);
-            udpClient.Client.Bind(localEP);
-            
-
-
-            //非同期的なデータ受信を開始する
-            udpClient.BeginReceive(ReceiveCallback, udpClient);
+            // 複数の受信処理を開始（並行処理）
+            for (int i = 0; i < 5; i++) // 例として5個の並行タスク
+            {
+                Task.Run(ReceiveLoop);
+            }
         }
-        private void ReceiveCallback(IAsyncResult ar)
+
+        private async Task ReceiveLoop()
         {
-            System.Net.Sockets.UdpClient udp =
-                (System.Net.Sockets.UdpClient)ar.AsyncState;
-
-            //非同期受信を終了する
-            System.Net.IPEndPoint remoteEP = null;
-            byte[] rcvBytes;
-            try
+            while (true)
             {
-                rcvBytes = udp.EndReceive(ar, ref remoteEP);
-            }
-            catch (System.Net.Sockets.SocketException ex)
-            {
-                Console.WriteLine("受信エラー({0}/{1})",
-                    ex.Message, ex.ErrorCode);
-                return;
-            }
-            catch (ObjectDisposedException ex)
-            {
-                //すでに閉じている時は終了
-                Console.WriteLine("Socketは閉じられています。");
-                return;
-            }
+                try
+                {
+                    UdpReceiveResult result = await udpClient.ReceiveAsync();
+                    string message = Encoding.UTF8.GetString(result.Buffer);
 
-            //データを文字列に変換する
-            string rcvMsg = System.Text.Encoding.UTF8.GetString(rcvBytes);
-
-            //受信したデータと送信者の情報をRichTextBoxに表示する
-            string displayMsg = string.Format("[{0} ({1})] > {2}",
-                remoteEP.Address, remoteEP.Port, rcvMsg);
-            Console.WriteLine(displayMsg);
-
-            //再びデータ受信を開始する
-            udp.BeginReceive(ReceiveCallback, udp);
+                    Console.WriteLine($"[{result.RemoteEndPoint.Address} ({result.RemoteEndPoint.Port})] > {message}");
+                }
+                catch (ObjectDisposedException)
+                {
+                    Console.WriteLine("Socketは閉じられました。");
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"受信エラー: {ex.Message}");
+                }
+            }
         }
-
     }
 }

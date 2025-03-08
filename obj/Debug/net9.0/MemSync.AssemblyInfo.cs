@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MemSync")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+57e3724858ba065b9ae6675c9e2c254dc85eb695")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+121ef0bb083e7df427c493514d54d050461ba3ce")]
 [assembly: System.Reflection.AssemblyProductAttribute("MemSync")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MemSync")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

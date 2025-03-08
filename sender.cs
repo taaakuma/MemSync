@@ -28,7 +28,6 @@ namespace MemSync
             if (IPAddress.TryParse(ipAddress, out IPAddress ip))
             {
                 endPoint = new IPEndPoint(ip, port);
-                Console.WriteLine("IPv6 Address is valid");
             }
             else
             {

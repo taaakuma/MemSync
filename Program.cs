@@ -16,10 +16,8 @@ namespace MemSync
             }
             
             var rce = new RemoteCommandExecutor();
-            if(Console.ReadLine() == "s"){
-                Server server = new Server();
-                while(true){}
-            }
+            Server server = new Server();
+
             Console.Write("input ipAddress: ");
             string ip = Console.ReadLine();
             Console.WriteLine($"ip: {ip}");
@@ -37,6 +35,7 @@ namespace MemSync
             return Array.FindAll(
                 Dns.GetHostAddresses(Dns.GetHostName()),
                 ip => ip.AddressFamily == AddressFamily.InterNetworkV6 && !ip.IsIPv6LinkLocal
+            
             );
         }
     }

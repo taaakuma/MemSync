@@ -28,3 +28,6 @@ C:/Users/takum/github/MemSync/obj/Debug/net9.0/refint/MemSync.dll
 C:/Users/takum/github/MemSync/obj/Debug/net9.0/MemSync.pdb
 C:/Users/takum/github/MemSync/obj/Debug/net9.0/MemSync.genruntimeconfig.cache
 C:/Users/takum/github/MemSync/obj/Debug/net9.0/ref/MemSync.dll
+/Users/taaakuma/github/MemSync/bin/Debug/net9.0/MemoryPack.Core.dll
+/Users/taaakuma/github/MemSync/obj/Debug/net9.0/MemSync.csproj.AssemblyReference.cache
+/Users/taaakuma/github/MemSync/obj/Debug/net9.0/MemSync.csproj.Up2Date

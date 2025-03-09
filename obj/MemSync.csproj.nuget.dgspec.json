@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/workspaces/MemSync/MemSync.csproj": {}
+    "/home/codespace/MemSync/MemSync.csproj": {}
   },
   "projects": {
-    "/workspaces/MemSync/MemSync.csproj": {
+    "/home/codespace/MemSync/MemSync.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/MemSync/MemSync.csproj",
+        "projectUniqueName": "/home/codespace/MemSync/MemSync.csproj",
         "projectName": "MemSync",
-        "projectPath": "/workspaces/MemSync/MemSync.csproj",
+        "projectPath": "/home/codespace/MemSync/MemSync.csproj",
         "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/MemSync/obj/",
+        "outputPath": "/home/codespace/MemSync/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/codespace/.nuget/NuGet/NuGet.Config"

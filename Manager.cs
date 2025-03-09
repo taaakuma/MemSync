@@ -6,7 +6,7 @@ namespace MemSync {
         string name;
         int start;
         int size;
-        bool memlock = false;
+        bool memlock;
         string[] allowed;
     };
     public struct cmdinfo {
@@ -15,8 +15,8 @@ namespace MemSync {
     }
     static class Manager {
         static byte[] Memory = {};
-        Dictionary<byte[]> commandHistory = {};
-        PriorityQueue<byte[],long> commandQueue;
+        //static Dictionary<byte[]> commandHistory;
+        static PriorityQueue<byte[],long> commandQueue;
         /*
             命令形式
             [1byte: 命令数]
@@ -24,13 +24,18 @@ namespace MemSync {
             [8byte: 引数の大きさ] [不定: 引数]...
             [1byte: 命令]...]
         */
-        cmdinfo ParseCommands(byte[] cmds){
+        static cmdinfo ParseCommands(byte[] bin){
             List<List<byte[]>> cmdlist = new List<List<byte[]>>();
             long index = 1;
-            for(byte i = 0;i < cmds[0];i++) {
+            for(byte i = 0;i < bin[0];i++) {
                 //index indecates the operate code
-
+                List<byte[]> cmd = new List<byte[]>();
+                cmd.Add([bin[index++]]);
+                //
+                cmd.Add([]);
+                
             }
+            return new cmdinfo();
         }
     }
 }

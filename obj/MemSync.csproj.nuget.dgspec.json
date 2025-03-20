@@ -1,30 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/home/codespace/MemSync/MemSync.csproj": {}
+    "/Users/taaakuma/github/MemSync/MemSync.csproj": {}
   },
   "projects": {
-    "/home/codespace/MemSync/MemSync.csproj": {
+    "/Users/taaakuma/github/MemSync/MemSync.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/codespace/MemSync/MemSync.csproj",
+        "projectUniqueName": "/Users/taaakuma/github/MemSync/MemSync.csproj",
         "projectName": "MemSync",
-        "projectPath": "/home/codespace/MemSync/MemSync.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/home/codespace/MemSync/obj/",
+        "projectPath": "/Users/taaakuma/github/MemSync/MemSync.csproj",
+        "packagesPath": "/Users/taaakuma/.nuget/packages/",
+        "outputPath": "/Users/taaakuma/github/MemSync/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "/Users/taaakuma/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net9.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {}
           }
         },
@@ -37,11 +37,12 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "dependencies": {
             "MemoryPack": {
               "target": "Package",
@@ -64,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

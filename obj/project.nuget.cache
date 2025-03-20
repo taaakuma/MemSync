@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "vvxk6sUGb44=",
+  "dgSpecHash": "Glu0mkXgYSo=",
   "success": true,
-  "projectFilePath": "/home/codespace/MemSync/MemSync.csproj",
+  "projectFilePath": "/Users/taaakuma/github/MemSync/MemSync.csproj",
   "expectedPackageFiles": [
-    "/home/codespace/.nuget/packages/memorypack/1.21.4/memorypack.1.21.4.nupkg.sha512",
-    "/home/codespace/.nuget/packages/memorypack.core/1.21.4/memorypack.core.1.21.4.nupkg.sha512",
-    "/home/codespace/.nuget/packages/memorypack.generator/1.21.4/memorypack.generator.1.21.4.nupkg.sha512"
+    "/Users/taaakuma/.nuget/packages/memorypack/1.21.4/memorypack.1.21.4.nupkg.sha512",
+    "/Users/taaakuma/.nuget/packages/memorypack.core/1.21.4/memorypack.core.1.21.4.nupkg.sha512",
+    "/Users/taaakuma/.nuget/packages/memorypack.generator/1.21.4/memorypack.generator.1.21.4.nupkg.sha512"
   ],
   "logs": []
 }

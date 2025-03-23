@@ -20,7 +20,8 @@ namespace MemSync
     {
         public List<byte[]> cmd;
         public long elapsed;
-        public long changed_index;
+        public long? changed_index = null;
+        public long? changed_size = null;
         public byte[] originalValue;
     }
 
@@ -31,7 +32,7 @@ namespace MemSync
         //static Dictionary<byte[]> commandHistory;
 
         // スタックの作成
-        Stack<cmdinfo> cmdHistory = new Stack<cmdinfo>();
+        static Stack<cmdinfo> cmdHistory = new Stack<cmdinfo>();
 
         //実行を待っている命令を保存する変数
         static PriorityQueue<byte[], long> commandQueue;
@@ -58,6 +59,7 @@ namespace MemSync
             Array.Copy(bin, 0, memory, index, bin.Length);
         }
 
+        //命令の引数タイプ
         enum ParameterType
         {
             point,
@@ -85,7 +87,10 @@ namespace MemSync
             }
             return true;
         }
-
+        /*
+        cmdinfoに保存された命令を実行します。実行したコマンドは、履歴に保存されます。
+        cmdinfoは参照渡しで、代入後編集されます。
+        */
         public static void run(ref cmdinfo info)
         {
             //00: write  [point: long] [value: byte[]]
@@ -97,6 +102,7 @@ namespace MemSync
             //06: ping [result: number]
             //07:
             List<byte[]> cmd = info.cmd;
+            //実行
             switch (cmd[0][0])
             {
                 case 00:
@@ -154,11 +160,15 @@ namespace MemSync
                     OverwriteArray(Memory, point, cmd[2]);
                     break;
             }
+            cmdHistory.Push(cmdHistory);
             return;
         }
 
         //最後に実行したコマンドを巻き戻す
-        public static void undo() { }
+        public static void undo() 
+        {
+            
+        }
 
         /*
             命令形式
@@ -166,6 +176,8 @@ namespace MemSync
             [1byte: 命令]  [1byte: 引数の個数]
             [8byte: 引数の大きさ] [不定: 引数]...
             [1byte: 命令]...]
+
+            取得したバイナリをcmdinfo形式に変換します。
         */
         public static cmdinfo[] ParseCommands(byte[] bin)
         {
